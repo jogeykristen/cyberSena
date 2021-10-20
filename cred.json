@@ -1,0 +1,12 @@
+{
+    "type": "service_account",
+    "project_id": "foodday-chatbot-eyqvnr",
+    "private_key_id": "e33a47006482d4a8d1b4a1e804949eca1596c3d4",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC6xT5ahV3PSZO3\nRgOYzy2wwVUFIF1wUmT0pB5/m/iYU517oftmEPh9Rhlh4/y4z1VhG5hwXYu+GrZG\nFvkMKpjXstR07zab8H4hxr9dXeBzXhsT+z4GV+T08Z5d7cX2czXOsbZ6359WbqBD\nVbK1M6jZLopS1jHi/BZr7u7Mzql1TjQA+X6nVbIpmhyMlIt1LDlT5I6fWezjtSyD\nWQVMU614Y02ZBruZWWdO0tuXIavzYXKZmIPGSZObpUL0xwZKITPHzcSSTIxWK5D7\nc0GYFwUDEzq98dutwDHxvJHq1A3PagdhGsBqj4U0PJr7ucEseaJ9WC1/qKxcLS97\nyJ+fvVIDAgMBAAECggEADzqnGhrMKpX9c/vDA6edD6UWtCYj8v/c7dp2BtdmdAaZ\nYuvd2RWNgCrXm1T2QJwzV4mNqq04svsa8r3LzT3/RtNKTJtMJiH8KZqQSbeDu5R9\npmmdm0cjywSVR7kWzmuC2dmWyg/IPnQjID/GzyH+ZMXNOfJE5hUXv5xKH4Ftwuab\nfwrenPIEPSaYdaB5nubx2XZMe2NI/dMmzhXTZ2mVM9C4ehxlWulkWwEby3W0+qyG\ncQtSKMWqJmiqbUxlP8BkzB4cu2Gjcf/ENUBefUn0kyNtCPCHTTySyngYkQvs85To\nHANl8tOheCFmVMWgNosJ4XBHfLOVage6aktokWHnfQKBgQD0GxfIuLfttMBlQ9M5\nO0lvk98Y7goXCXkZ0SvaT//luGvPWOVNJScc/ikFtWKE9IAkPJNC8wKjO9FZ57HK\nx/UUDVSuy+xsRKQwkoIKwo1loDrr1KaL0gcALb2NF/Mh8iL4hYkg1hnYsSNYBJlO\nMf0mUtwM1QQNDDgNlFS1+hRaxQKBgQDD3vc6lXUkfcjpaCcJfLom6kZoFBasdvWQ\ny98fQNlYA8XhfLq5Kf6imi0pniCy/2oy9T6F0CG6W23lI/lx4+7bs6ijfwazno+d\nTBVW6lbbalmjJuPO4iw28gPW8n0eMF5pMAzWr0Rfa1oKNnvs/n+QCC0/GHiv8CnO\nrtAQ3CVmJwKBgQCHVkoOeBNJkDAnNL5z+aHSYcqMONWRRihFHwpQJJB83Y2wTNn8\ntn+D/Inj51ey3Rf6fzcqJC8vLyf3z5RsGAaR0n5D1z3CHSBm6aN9sbXRRU/FloWr\n+Yr2F2YDRub+yA+JeAe6E9oKoNM2pn4Us3Rl/gSQfL2dOkwNg1Kf/gGw/QKBgAls\nY7aU1DLyPkVEdoRVVNtkcAi31rNrcbsKo+xsAUjjvZRwnMclxxNpmXykF+ykryZO\neDiV39mIZowco/afwbEePqHHDbp8iWpG68vnsFAUGMXprBIa/YeTMy4XMn/OUex7\nnFKD0iVJE+bj4ihvwhFa41piwgOs6UYBUQ9OmBoHAoGAduru/sycGBpbGNkNq6JG\n4szSwOM4oBd5s4Q5H3OGhPKQDNckuuKTVbKcS7wfdiPVemxeDIx4ybj3oQQF0SGY\n9Zgawh2p0LStiv4S8UZbOnyjA0HCLUrpQva04LhyohVXr1RF60Vc+4AI/cTwZ7CF\nnyYM5VTT1/jfYJhPMjKVPc0=\n-----END PRIVATE KEY-----\n",
+    "client_email": "foodday-chatbot-eyqvnr@appspot.gserviceaccount.com",
+    "client_id": "112419240177371891388",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/foodday-chatbot-eyqvnr%40appspot.gserviceaccount.com"
+  }
