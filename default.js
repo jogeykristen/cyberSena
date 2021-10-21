@@ -1,6 +1,4 @@
 function user1handler(options, event, context, callback) {
-  console.log("hello user");
-   
     if (event.message == 1) {
       options.next_state = 'bot3';
     } 
@@ -14,7 +12,7 @@ function user2handler(options, event, context, callback) {
     }
     else{
       options.next_state = 'bot3'
-      context.sendResponse("Enter a valid phone number")
+      context.sendResponse("Enter a valid 10 digit phone number")
     }
       callback(options, event, context);
     }
@@ -25,6 +23,7 @@ function user2handler(options, event, context, callback) {
       }
       else{
         options.next_state='bot4'
+        context.sendResponse("Enter a valid 12 digit number")
       }
         callback(options, event, context);
       }
@@ -43,11 +42,13 @@ function user4handler(options, event, context, callback) {
             options.next_state = 'bot6';
           }
           else{
+            context.sendResponse("Enter a valid date")
             options.next_state = 'bot5'
           }
         }
         else{
           options.next_state = 'bot5'
+          context.sendResponse("Enter the date in the described format")
         }
           callback(options, event, context);
         }
@@ -108,6 +109,7 @@ function user8_bhandler(options, event, context, callback) {
             }
             else{
               options.next_state = 'bot8_b';
+              context.sendResponse("Enter a valid URL")
             }
           callback(options, event, context);
         }
@@ -117,6 +119,7 @@ function user8_chandler(options, event, context, callback) {
               options.next_state.gallery = 'bot9';
             }
             else{
+              context.sendResponse("Enter a valid 10 digit phone number")
               options.next_state = 'bot8_c';
             }
           callback(options, event, context);
@@ -147,6 +150,7 @@ function user11handler(options, event, context, callback) {
     options.next_state = 'bot12';
   }
   else{
+    context.sendResponse("Share an image")
     options.next_state = 'bot11'
   }
 callback(options, event, context);

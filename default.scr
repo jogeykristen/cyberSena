@@ -40,7 +40,7 @@
                 user10:sfasdfgad
                     bot11:Capture a screenshot of the transaction📸
                         user11:dafadf
-                            bot12:I acknowledge & understand that NPCI is not bound by any Legal obligations to resolve highlighted concerns/refund lost money and that NPCI can’t be made party to address his/her grievances.\nTo register your complaint please press "1". 
+                            bot12:I acknowledge & understand that NPCI is not bound by any Legal obligations to resolve highlighted concerns/refund lost money and that NPCI can’t be made party to address his/her grievances.\nTo register your complaint *please press 1*. 
                                 user12:1
                                     bot13:Your complaint is registered with us and reference number is XXXXX.\n👉 Kindly report the fraud to your Bank and file police complaint for resolution.📝\n👉 You can also register your complaint at https://cybercrime.gov.in/ or ☎️call on Helpline no – 155260 .  
                                         :call default.main
