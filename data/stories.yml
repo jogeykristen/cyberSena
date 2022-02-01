@@ -1,0 +1,159 @@
+version: "3.0"
+
+stories:
+
+
+
+- story: data
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: location_form
+  - active_loop: location_form
+  - slot_was_set:
+    - requested_slot: location
+  - active_loop: null
+  - action: action_resources_list
+  #- intent: show_restaurant
+  #- action: action_resources_list
+  - intent: restaurants
+  - action: action_product_list
+  - slot_was_set:
+    - restaurant: restaurant id|1
+  - checkpoint: rest
+
+- story: add_to_cart
+  steps:
+  - checkpoint: rest
+  - intent: FoodCategories
+  - action: action_food_list
+  - slot_was_set:
+    - foods: category id|1
+
+  - intent: quantity
+  - action: action_quantity_list
+  - slot_was_set:
+    - quantity: product_id|1
+
+
+  - intent: cart
+  - action: action_cart_list
+  - slot_was_set:
+    - carts: product_id|1
+  - checkpoint: rest
+
+- story: add_to_cart_2
+  steps:
+  - checkpoint: rest
+  - intent: FoodCategories
+  - action: action_food_list
+  - slot_was_set:
+    - foods: category id|1
+
+  - intent: quantity
+  - action: action_quantity_list
+  - slot_was_set:
+    - quantity: product_id|1
+
+  - intent: cart
+  - action: action_cart_list
+  - slot_was_set:
+    - carts: 1
+  - checkpoint: rest
+
+- story: add_to_cart_3
+  steps:
+  - checkpoint: rest
+  - intent: FoodCategories
+  - action: action_food_list
+  - slot_was_set:
+    - foods: category id|1
+
+  - intent: quantity
+  - action: action_quantity_list
+  - slot_was_set:
+    - quantity: product_id|1
+
+  - intent: cart
+  - action: action_cart_list
+  - slot_was_set:
+    - carts: 1
+  - checkpoint: ad
+
+- story: carryout/delivery
+  steps:
+  - checkpoint: rest
+  - intent: mode
+  - action: utter_mode
+  - checkpoint: mode
+
+- story: carryout/delivery_2
+  steps:
+  - checkpoint: ad
+  - intent: mode
+  - action: utter_mode
+  - checkpoint: mode
+
+- story: carryout
+  steps:
+  - checkpoint: mode
+  - intent: carry
+  - action: carry_form
+  - active_loop: carry_form
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_carry_values
+  - action: utter_confirm
+  - checkpoint: carry_confirm
+
+- story: carry_no
+  steps:
+  - checkpoint: carry_confirm
+  - intent: carry_no
+  - action: action_reset_slots
+  - action: carry_form
+  - active_loop: carry_form
+  - active_loop: null
+  
+  - action: utter_submit
+  - action: utter_carry_values
+  - action: utter_confirm
+
+
+
+
+- story: delivery
+  steps:
+  - checkpoint: mode  
+  - intent: form
+  
+  - action: details_form
+  - active_loop: details_form
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: utter_del_confirm
+  - checkpoint: del_confirm
+  # - intent: final
+  # - action: action_receipt_list
+
+- story: del_no
+  steps:
+  - checkpoint: del_confirm
+  - intent: del_no
+  - action: action_reset_del_slots
+  - action: details_form
+  - active_loop: details_form
+  - active_loop: null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: utter_del_confirm
+  - checkpoint: carry_confirm
+  
+
+- story: carry_receipt
+  steps:
+  - checkpoint: carry_confirm 
+  - intent: final
+  
+  - action: action_receipt_list

@@ -1,0 +1,141 @@
+version: "3.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: activate details form
+  steps:
+    - intent: form
+    - action: details_form
+    - active_loop:  details_form
+
+- rule: submit form
+  condition:
+  - active_loop:  details_form
+  steps:
+  - action:  details_form
+  - active_loop:  null
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: utter_del_confirm
+
+- rule: activate details_no form
+  steps:
+    
+    - intent: del_no
+    - action: action_reset_del_slots
+    - action: details_form
+    - active_loop:  details_form
+    
+
+- rule: submit details_no form
+  condition:
+  - active_loop:  details_form
+  steps:
+  - action: action_reset_del_slots
+  - action:  details_form
+  - active_loop:  null
+  
+  - action: utter_submit
+  - action: utter_slots_values
+  - action: utter_del_confirm
+
+- rule: activate carry form
+  steps:
+    - intent: carry
+    - action: carry_form
+    - active_loop:  carry_form
+
+- rule: submit carry form
+  condition:
+  - active_loop:  carry_form
+  steps:
+  - action:  carry_form
+  - active_loop:  null
+  - action: utter_submit
+  - action: utter_carry_values
+  - action: utter_confirm
+
+- rule: activate carry_no form
+  steps:
+    
+    - intent: carry_no
+    - action: action_reset_slots
+    - action: carry_form
+    - active_loop:  carry_form
+    
+
+- rule: submit carry_no form
+  condition:
+  - active_loop:  carry_form
+  steps:
+  - action: action_reset_slots
+  - action:  carry_form
+  - active_loop:  null
+  
+  - action: utter_submit
+  - action: utter_carry_values
+  - action: utter_confirm
+
+
+- rule: carousel
+  conversation_start: false
+  steps:
+  - intent: location
+  - action: location_form
+  - active_loop: location_form
+  - slot_was_set:
+    - requested_slot: location
+  - active_loop: null
+  - action: action_resources_list
+
+- rule: carousel2
+  conversation_start: false
+  steps:
+  - intent: restaurants
+  - action: action_product_list
+
+- rule: carousel3
+  conversation_start: false
+  steps:
+  - intent: FoodCategories
+  - action: action_food_list
+
+- rule: cart
+  conversation_start: false
+  steps:
+  - intent: cart
+  - action: action_cart_list
+
+- rule: quan
+  conversation_start: false
+  steps:
+  - intent: quantity
+  - action: action_quantity_list
+
+- rule: receipt
+  conversation_start: false
+  steps:
+  - intent: final
+  - action: action_receipt_list
+
+
+- rule: Ask the user to rephrase whenever they send a message with low NLU confidence
+  steps:
+ # - intent: nlu_fallback
+  - action: utter_please_rephrase
+
+# - rule: quan
+#   conversation_start: false
+#   steps:
+#   - intent: show_restaurant
+#   - action: action_resources_list

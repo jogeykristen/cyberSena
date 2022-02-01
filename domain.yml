@@ -1,0 +1,337 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - location
+  - restaurants
+  - FoodCategories
+  - stop
+  - form
+  - carry
+  - cart
+  - mode
+  - final
+  - quantity
+  - nlu_fallback
+  - carry_no
+  - del_no
+  #- show_restaurant
+
+
+responses:
+
+  
+  utter_please_rephrase:
+  - text: I'm sorry, I didn't quite understand that. Could you rephrase?
+  utter_greet:
+  - text: "Hey! Welcome to Fooday Bot.We help you order the best food"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_wrong_username:
+  - text: "Please enter aa correct name"
+
+  utter_location:
+  - text: "Please  choose your restaurant"
+
+  utter_restaurant:
+  - text: "Please provide the food category"
+
+  utter_foodCategories:
+  - text: "Added to cart.Please provide your name for checkout process"    
+
+  utter_ask_carry_name:
+  - text: "Can I get your name, please?"
+
+  utter_wrong_pincode:
+  - text: "Please enter a valid 6 digit number"
+
+  utter_wrong_phonenumber:
+  - text: "Please enter a valid 10 digit phonenumber"
+
+  utter_wrong_email:
+  - text: "Please enter a valid email address"
+
+  utter_ask_carry_phonenumber:
+  - text: "Could I have your phone number?"                                                                                                                                           
+
+  utter_ask_name:
+  - text: "Can I get your name?"
+
+  utter_ask_location:
+  - text: "Please provide location for delivery"
+
+  utter_ask_phonenumber:
+  - text: "Could I have your phone number?"
+
+  utter_ask_address:
+  - text: "Please provide  address"
+
+  utter_ask_pincode:
+  - text: "Please provide pincode"
+
+  utter_ask_email:
+  - text: "What is your email address?"
+
+  utter_submit:
+  - text: "Done!.Your details are submitted"
+  
+  utter_slots_values:
+  - text: "Here is your order summary:\n
+          Name: {name}\n
+          Mobile Number: {phonenumber}\n
+          Address: {address}\n
+          Pincode: {pincode}\n
+          Email: {email}"
+
+  utter_carry_values:
+  - text: "Please confirm your details\n
+          Name: {carry_name}\n
+          Mobile Number: {carry_phonenumber}"
+
+  utter_quantity:
+  - text: Enter quantity
+    buttons:  
+    - title: "1"
+      payload: "1"
+    - title: "2"
+      payload: "2"
+    - title: "3"
+      payload: "3"
+    - title: "4"
+      payload: "4"
+    - title: "5"
+      payload: "5"
+
+  utter_mode:
+  - text: "What would you like to do?"
+    buttons:
+    - title: "Carryout"
+      payload: "carryout"
+    - title:  "Delivery"
+      payload:  "delivery"
+
+  utter_confirm:
+  - text:  "Is the infomation given correct"
+    buttons:
+    - title:  "Yes"
+      payload: "yes"
+    - title:  "No"
+      payload:  "carry_no"
+
+  utter_del_confirm:
+  - text:  "Is the infomation given correct"
+    buttons:
+    - title:  "Yes"
+      payload: "yes"
+    - title:  "No"
+      payload:  "no_delivery"
+
+actions:
+- action_receipt_list
+- action_resources_list
+- action_product_list
+- action_food_list
+- action_cart_list
+- validate_details_form
+- validate_carry_form
+- action_quantity_list
+- action_reset_slots
+- action_reset_del_slots
+#- action_location_list
+
+entities:
+  - username
+  - phonenumber
+  - address
+  - pincode
+  - c_name
+  - c_phonenumber
+  - email
+
+forms:
+
+  location_form:
+    required_slots:
+      - location
+
+  details_form:
+    required_slots:
+      - name
+      - phonenumber
+      - address
+      - pincode
+      - email
+
+  carry_form:
+    required_slots:
+      - carry_name
+      - carry_phonenumber
+
+slots:
+
+  location:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_text
+        conditions:
+         - active_loop: location_form
+           requested_slot: location
+  name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: username
+    - type: from_text
+      conditions:
+      - active_loop:  details_form
+        requested_slot: name
+      
+  phonenumber:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: phonenumber
+
+    - type: from_text
+      conditions:
+      - active_loop:  details_form
+        requested_slot: phonenumber
+
+
+  address:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: address
+    - type: from_text
+      conditions:
+      - active_loop:  details_form
+        requested_slot: address
+    
+
+  pincode:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: pincode
+      
+    - type: from_text
+      conditions:
+      - active_loop:  details_form
+        requested_slot: pincode
+
+  email:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: email
+      
+    - type: from_text
+      conditions:
+      - active_loop:  details_form
+        requested_slot: email
+
+  carry_name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: c_name
+      
+    - type: from_text
+      conditions:
+      - active_loop:  carry_form
+        requested_slot: carry_name
+  
+  carry_phonenumber:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: c_phonenumber
+      
+    - type: from_text
+      conditions:
+      - active_loop:  carry_form
+        requested_slot: carry_phonenumber
+  
+
+  restaurant:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+  latitude:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+  longitude:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+  carts:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+
+  foods:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+  prod_id:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+  cart:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+  quantity:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: custom
+
+   
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
