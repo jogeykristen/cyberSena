@@ -111,7 +111,7 @@ responses:
 
   utter_quantity:
   - text: Enter quantity
-    buttons:  
+    quick_replies:  
     - title: "1"
       payload: "1"
     - title: "2"

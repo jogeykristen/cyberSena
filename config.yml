@@ -31,8 +31,8 @@ pipeline:
     #ambiguity_threshold: 0.1
     
   - name: DucklingEntityExtractor
-    url: http://duckling:8000
-    #url: http://localhost:8000
+    #url: http://duckling:8000
+    url: http://localhost:8000
     dimensions:
       - phonenumber
       - pincode
