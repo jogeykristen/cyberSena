@@ -49,10 +49,10 @@ responses:
   - text: "I am a bot, powered by Rasa."
 
   utter_wrong_username:
-  - text: "Please enter aa correct name"
+  - text: "Please enter a correct name"
 
   utter_location:
-  - text: "Please  choose your restaurant"
+  - text: "Please choose your restaurant"
 
   utter_restaurant:
   - text: "Please provide the food category"
@@ -61,7 +61,7 @@ responses:
   - text: "Added to cart.Please provide your name for checkout process"    
 
   utter_ask_carry_name:
-  - text: "Can I get your name, please?"
+  - text: "Can I get your name?"
 
   utter_wrong_pincode:
   - text: "Please enter a valid 6 digit number"
@@ -85,7 +85,7 @@ responses:
   - text: "Could I have your phone number?"
 
   utter_ask_address:
-  - text: "Please provide  address"
+  - text: "Please provide address"
 
   utter_ask_pincode:
   - text: "Please provide pincode"
